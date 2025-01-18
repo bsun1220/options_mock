@@ -1,4 +1,4 @@
-from imports import *
+from src.imports import *
 
 def generate_random_S(min_price = 50, max_price = 150):
     price = np.random.random() * (max_price - min_price) + min_price

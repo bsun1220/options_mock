@@ -1,4 +1,4 @@
-from board_gen import *
+from src.board_gen import *
 import xlwt
 
 class OptionMock():
@@ -115,7 +115,7 @@ class OptionMock():
     def get_fairs(self):
         return self.rand_board[2]
 
-    def create_excel(self, num_orders = 10):
+    def create_excel(self, file_name = 'options_mock', num_orders = 10):
         if self.rand_board is None:
             return
         
@@ -145,7 +145,7 @@ class OptionMock():
         ws1.write(11, 2, self.rand_board[1]['Ks'][3])
         ws1.write(12, 2, self.rand_board[1]['Ks'][4])
 
-        ws1.write(14, 1, "COMBOS")
+        ws1.write(14, 0, "COMBOS")
         ind = 0
         for combo in self.rand_board[0]:
             
@@ -162,7 +162,7 @@ class OptionMock():
                 px = self.rand_board[0][combo]
                 txt = f"{combo}: {np.round(px - edge, 2)} @ {np.round(px + edge, 2)}, {liquidity} up\n"
 
-            ws1.write(15+ind, 1, txt)
+            ws1.write(15+ind, 0, txt)
             ind += 1
 
         ws1.write(14, 3, "CUST ORDERS")
@@ -187,7 +187,7 @@ class OptionMock():
             ws2.write(8 + i, 5, f'Delta: {delta}')
 
         
-        wb.save('options_mock.xls')
+        wb.save(f'board/{file_name}.xls')
         
         
 

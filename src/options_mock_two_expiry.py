@@ -1,4 +1,4 @@
-from board_gen import *
+from src.board_gen import *
 import xlwt
 
 class OptionMockTwoExpiry():
@@ -158,7 +158,7 @@ class OptionMockTwoExpiry():
     def get_fairs(self):
         return self.rand_board1[2], self.rand_board2[2]
 
-    def create_excel(self, num_orders = 10):
+    def create_excel(self, file_name = 'options_mock', num_orders = 10):
         if self.rand_board1 is None or self.rand_board2 is None:
             return
         
@@ -274,4 +274,4 @@ class OptionMockTwoExpiry():
             ws2.write(8 + i, 9, f'Delta: {delta}')
 
         
-        wb.save('options_mock.xls')
+        wb.save(f'board/{file_name}.xls')

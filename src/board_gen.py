@@ -1,5 +1,5 @@
-from options import *
-from random_gen import *
+from src.options import *
+from src.random_gen import *
 
 def generate_board_one(info_dict = None):
     S, sigma, rc, T, Ks = None, None, None, None, None

@@ -1,4 +1,4 @@
-from imports import *
+from src.imports import *
 
 class BsOption:
     def __init__(self, S, K, T, rc, sigma, q=0):
